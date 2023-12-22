@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Something</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <div id="container"></div>
+</body>
+
+<script>
+    const container = document.getElementById('container')
+    function sayDate(str){
+        console.log(str, Date.now());
+        container.innerHTML = `${str}, ${Date.now()}`;
+    }
+
+    const startBtn = document.querySelector('#start')
+    const stopBtn = document.querySelector('#stop')
+    let IntervalID;
+
+    startBtn.addEventListener('click', () => {
+        IntervalID = setInterval(sayDate, 1000, "Hi");
+    })
+
+    stopBtn.addEventListener('click', () => {
+        clearInterval(IntervalID);
+    })
+
+</script>
+
+</html>
